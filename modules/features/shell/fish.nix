@@ -1,5 +1,5 @@
-{ self, ... }: {
-  flake.nixosModules.shell = { pkgs, ... }: {
+{self, ...}: {
+  flake.nixosModules.shell = {pkgs, ...}: {
     programs.fish.enable = true;
     environment.systemPackages = with pkgs; [
       tree
@@ -12,19 +12,18 @@
     ];
   };
 
-  flake.homeModules.shell = { pkgs, ... }: {
-
+  flake.homeModules.shell = {pkgs, ...}: {
     # Fish itself
     programs.fish = {
       enable = true;
       interactiveShellInit = ''
-	set -g fish_greeting ""
-	starship init fish | source
-	zoxide init fish | source
+        set -g fish_greeting ""
+        starship init fish | source
+        zoxide init fish | source
       '';
       shellAliases = {
-	ls = "eza -la --icons --group-directories-first";
-	cat = "bat --style=plain";
+        ls = "eza -a --icons --group-directories-first";
+        cat = "bat --style=plain";
       };
     };
 

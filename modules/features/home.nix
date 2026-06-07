@@ -10,6 +10,7 @@
       shell
       terminal
       niri
+      neovim
     ];
   };  
 }
