@@ -7,6 +7,9 @@
     };
 
     imports = with self.homeModules; [
+      shell
+      terminal
+      niri
     ];
   };  
 }

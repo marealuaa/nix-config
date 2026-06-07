@@ -8,9 +8,12 @@
   flake.nixosModules.hostLaptop = { pkgs, ... }: {
     imports = [
       inputs.home-manager.nixosModules.home-manager
+
       self.nixosModules.core
       self.nixosModules.pipewire
       self.nixosModules.shell
+      self.nixosModules.stylix
+      self.nixosModules.niri
     ];
 
     home-manager = {

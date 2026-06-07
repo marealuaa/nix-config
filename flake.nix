@@ -20,6 +20,11 @@
 	    inputs.nixpkgs.follows = "nixpkgs";
 	};
 
+	niri-nix = {
+	    url = "git+https://codeberg.org/BANanaD3V/niri-nix";
+	    inputs.nixpkgs.follows = "nixpkgs";
+	};
+
 	# Unused for now
 	sops-nix = {
 	    url = "github:Mic92/sops-nix";

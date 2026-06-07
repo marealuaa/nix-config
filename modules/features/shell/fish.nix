@@ -1,5 +1,5 @@
 { self, ... }: {
-  flake.nixosModules.core = { pkgs, ... }: {
+  flake.nixosModules.shell = { pkgs, ... }: {
     programs.fish.enable = true;
     environment.systemPackages = with pkgs; [
       tree

@@ -7,10 +7,10 @@
       settings = {
         add_newline = true;
 
-        format = """
+        format = ''
 $directory$git_branch$git_state$git_status$nix_shell$rust$package$cmd_duration
 $character
-""";
+'';
 
         character = {
           success_symbol = "[❯](bold blue) ";
