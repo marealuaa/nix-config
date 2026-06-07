@@ -4,7 +4,7 @@
     users.users.mari = {
       isNormalUser = true;
       description = "Hi, hello! It's Mari, the gal who made this thing!";
-      # shell = pkgs.fish;
+      shell = pkgs.fish;
       extraGroups = [
 	"wheel"
 	"networkmanager"

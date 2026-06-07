@@ -12,12 +12,12 @@
       enable = true;
       polarity = "dark";
 
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-dark.yaml";
 
       cursor = {
 	package = pkgs.bibata-cursors;
 	name = "Bibata-Modern-Classic";
-	size = 22;
+	size = 21;
       };
 
       fonts = {
@@ -37,10 +37,10 @@
 	};
 
 	sizes = {
-	  applications = 16;
-	  terminal = 16;
-	  desktop = 16;
-	  popups = 16;
+	  applications = 12;
+	  terminal = 12;
+	  desktop = 12;
+	  popups = 12;
 	};
 
       };

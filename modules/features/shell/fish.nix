@@ -19,6 +19,8 @@
       enable = true;
       interactiveShellInit = ''
 	set -g fish_greeting ""
+	starship init fish | source
+	zoxide init fish | source
       '';
       shellAliases = {
 	ls = "eza -la --icons --group-directories-first";
