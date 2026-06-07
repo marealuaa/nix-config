@@ -25,6 +25,9 @@
 	    url = "github:Mic92/sops-nix";
 	    inputs.nixpkgs.follows = "nixpkgs";
 	};
+
+	# Extras
+	nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
     };
 
     outputs = inputs: let
@@ -42,6 +45,8 @@
 	in
 	    mkFlake {
 		systems = ["x86_64-linux"];
-		imports = importTree ./.;
-	    };
+		imports = [
+		  inputs.home-manager.flakeModules.home-manager
+		] ++ (importTree ./.);
+	  };
 }
