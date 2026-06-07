@@ -10,6 +10,7 @@
       inputs.home-manager.nixosModules.home-manager
       self.nixosModules.core
       self.nixosModules.pipewire
+      self.nixosModules.shell
     ];
 
     home-manager = {
