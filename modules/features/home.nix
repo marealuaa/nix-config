@@ -12,6 +12,7 @@
       niri
       noctalia
       neovim
+      stylix
     ];
   };
 }

@@ -10,11 +10,13 @@
 
     stylix = {
       enable = true;
+
+      homeManagerIntegration.autoImport = true;
+      homeManagerIntegration.followSystem = true;
+
       polarity = "dark";
 
       base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-dark.yaml";
-
-      targets.noctalia.enable = false;
 
       override = {
         base04 = "a9b1d6";
@@ -58,5 +60,9 @@
         };
       };
     };
+  };
+
+  flake.homeModules.stylix = {...}: {
+    stylix.targets.noctalia-shell.enable = false;
   };
 }

@@ -1,6 +1,6 @@
 {
   flake.homeModules.noctalia = {...}: {
-    settings = {
+    programs.noctalia-shell.settings = {
       settingsVersion = 59;
 
       bar = {
