@@ -14,6 +14,8 @@
 
       base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-dark.yaml";
 
+      targets.noctalia.enable = false;
+
       override = {
         base04 = "a9b1d6";
         base05 = "c0caf5";

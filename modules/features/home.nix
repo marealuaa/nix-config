@@ -1,7 +1,7 @@
-{ self, ... }: {
+{self, ...}: {
   flake.homeModules.mari = {...}: {
     home = {
-      username  = "mari";
+      username = "mari";
       homeDirectory = "/home/mari";
       stateVersion = "26.11";
     };
@@ -10,7 +10,8 @@
       shell
       terminal
       niri
+      noctalia
       neovim
     ];
-  };  
+  };
 }
