@@ -20,9 +20,9 @@
       };
 
       profiles.mari = {
-        isDefault = true;
         id = 0;
-        extensions.force = true;
+        name = "mari";
+        isDefault = true;
 
         userContent = ''
           * {
