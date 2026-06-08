@@ -16,18 +16,11 @@
 
       polarity = "dark";
 
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-dark.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
 
       override = {
-        base04 = "a9b1d6";
-        base05 = "c0caf5";
-        base06 = "c0caf5";
-
+        base00 = "1a1b2e";
         base0D = "7aa2f7";
-        base0B = "bb9af7";
-
-        base09 = "7dcfff";
-        base0C = "ff9e64";
       };
 
       cursor = {
