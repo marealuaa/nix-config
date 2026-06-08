@@ -13,6 +13,7 @@
       noctalia
       neovim
       stylix
+      apps
     ];
   };
 }
