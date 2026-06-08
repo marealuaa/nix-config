@@ -57,6 +57,5 @@
 
   flake.homeModules.stylix = {...}: {
     stylix.targets.noctalia-shell.enable = false;
-    stylix.targets.firefox.profileNames = ["mari"];
   };
 }
