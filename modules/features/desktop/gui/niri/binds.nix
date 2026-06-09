@@ -2,7 +2,7 @@
   flake.homeModules.gui = {pkgs, ...}: {
     wayland.windowManager.niri.settings.binds = {
       "Mod+Return" = {spawn = ["ghostty" "--gtk-single-instance=true"];};
-      "Mod+Space" = {spawn = ["noctalia-shell" "ipc" "call" "launcher" "toggle"];};
+      "Mod+Space" = {spawn = ["noctalia" "msg" "panel-toggle" "launcher"];};
       "Mod+Q" = {close-window = [];};
       "Mod+O" = {toggle-overview = [];};
       "Mod+V" = {toggle-overview = [];};

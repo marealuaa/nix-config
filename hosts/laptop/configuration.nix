@@ -19,6 +19,7 @@
       self.nixosModules.stylix
       self.nixosModules.gui
       self.nixosModules.flatpak
+      self.nixosModules.gaming
     ];
 
     home-manager = {

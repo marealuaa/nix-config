@@ -62,7 +62,7 @@
 
       layer-rule = [
         {
-          match._props.namespace = "^noctalia-overview*";
+          match._props.namespace = "^noctalia-backdrop";
           place-within-backdrop = true;
         }
       ];
