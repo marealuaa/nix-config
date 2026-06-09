@@ -27,6 +27,11 @@
       };
     };
 
+    home.sessionVariables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+    };
+
     # Utilities
     programs.zoxide = {
       enable = true;

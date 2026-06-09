@@ -1,5 +1,5 @@
 {
-  flake.homeModules.niri = { ... }: {
+  flake.homeModules.niri = {...}: {
     wayland.windowManager.niri.settings = {
       prefer-no-csd = true;
 
@@ -7,8 +7,11 @@
         gaps = 16;
         center-focused-column = "never";
         default-column-width._children = [
-          { proportion = 0.5; }
+          {proportion = 1.0;}
         ];
+
+        background-color = "transparent";
+
         focus-ring.off = [];
         border.off = [];
         shadow = {
@@ -56,6 +59,13 @@
           epsilon = 0.0001;
         };
       };
+
+      layer-rule = [
+        {
+          match._props.namespace = "^noctalia-overview*";
+          place-within-backdrop = true;
+        }
+      ];
 
       window-rule = [
         {

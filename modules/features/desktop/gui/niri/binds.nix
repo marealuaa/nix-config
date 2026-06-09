@@ -5,9 +5,10 @@
       "Mod+Space" = {spawn = ["noctalia-shell" "ipc" "call" "launcher" "toggle"];};
       "Mod+Q" = {close-window = [];};
       "Mod+O" = {toggle-overview = [];};
+      "Mod+V" = {toggle-overview = [];};
 
-      "Mod+Plus" = {set-column-width = ["+10"];};
-      "Mod+Minus" = {set-column-width = ["-10"];};
+      "Mod+Plus" = {set-column-width = ["+50"];};
+      "Mod+Minus" = {set-column-width = ["-50"];};
 
       "XF86AudioRaiseVolume" = {spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+" "-l" "1.0"];};
       "XF86AudioLowerVolume" = {spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"];};

@@ -32,6 +32,71 @@
         id = 0;
         name = "mari";
 
+        bookmarks = {
+          force = true;
+          settings = [
+            {
+              name = "General Links";
+              toolbar = true;
+              bookmarks = [
+                {
+                  name = "YouTube";
+                  url = "https://www.youtube.com";
+                }
+                {
+                  name = "Reddit";
+                  url = "https://www.reddit.com";
+                }
+              ];
+            }
+            {
+              name = "Code Links";
+              bookmarks = [
+                {
+                  name = "GitHub";
+                  url = "https://github.com";
+                }
+                {
+                  name = "Claude";
+                  url = "https://claude.ai";
+                }
+              ];
+            }
+            {
+              name = "Nix Links";
+              bookmarks = [
+                {
+                  name = "Nix Search";
+                  url = "https://search.nixos.org";
+                }
+                {
+                  name = "MyNixos";
+                  url = "https://mynixos.com";
+                }
+              ];
+            }
+          ];
+        };
+
+        spacesForce = true;
+        spaces = {
+          "General" = {
+            id = "c6de089c-410d-4206-961d-ab11f988d40a";
+            position = 1000;
+            icon = "🏠";
+          };
+          "Code" = {
+            id = "b3fca217-1d37-4d9a-8869-7ee4a1792fa2";
+            position = 2000;
+            icon = "💻";
+          };
+          "Nix" = {
+            id = "e4b52b21-fa43-4e4b-9721-cda3bb6bdf8a";
+            position = 3000;
+            icon = "❄️";
+          };
+        };
+
         settings = {
           "browser.startup.page" = 3;
           "zen.workspaces.continue-where-left-off" = true;

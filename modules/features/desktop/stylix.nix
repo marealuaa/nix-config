@@ -29,6 +29,13 @@
         size = 21;
       };
 
+      icons = {
+        enable = true;
+        package = pkgs.papirus-icon-theme;
+        dark = "Papirus-Dark";
+        light = "Papirus-Light";
+      };
+
       fonts = {
         monospace = {
           package = pkgs.nerd-fonts.jetbrains-mono;
@@ -57,6 +64,7 @@
 
   flake.homeModules.stylix = {...}: {
     stylix.targets.noctalia-shell.enable = false;
+    stylix.targets.nvf.enable = false;
     stylix.targets.zen-browser.profileNames = ["mari"];
   };
 }
