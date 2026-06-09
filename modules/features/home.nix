@@ -9,9 +9,8 @@
     imports = with self.homeModules; [
       shell
       terminal
-      niri
-      noctalia
-      neovim
+      gui
+      editor
       stylix
       apps
     ];

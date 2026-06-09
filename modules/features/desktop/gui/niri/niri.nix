@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  flake.nixosModules.niri = {pkgs, ...}: {
+  flake.nixosModules.gui = {pkgs, ...}: {
     programs.niri = {
       enable = true;
       useNautilus = true;
@@ -12,7 +12,7 @@
     ];
   };
 
-  flake.homeModules.niri = {pkgs, ...}: {
+  flake.homeModules.gui = {pkgs, ...}: {
     imports = [inputs.niri-nix.homeModules.default];
 
     wayland.windowManager.niri = {
@@ -23,11 +23,10 @@
     xdg.portal = {
       enable = true;
       config.niri = {
-        default = ["gnome" "gtk"];
+        default = ["gnome"];
         "org.freedesktop.impl.portal.FileChooser" = ["gnome"];
       };
       extraPortals = with pkgs; [
-        xdg-desktop-portal-gtk
         xdg-desktop-portal-gnome
       ];
     };

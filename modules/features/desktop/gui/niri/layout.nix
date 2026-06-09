@@ -1,5 +1,5 @@
 {
-  flake.homeModules.niri = {...}: {
+  flake.homeModules.gui = {...}: {
     wayland.windowManager.niri.settings = {
       prefer-no-csd = true;
 

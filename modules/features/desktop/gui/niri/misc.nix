@@ -1,7 +1,6 @@
 {
-  flake.homeModules.niri = { ... }: {
+  flake.homeModules.gui = {...}: {
     wayland.windowManager.niri.settings = {
-
       input = {
         keyboard.xkb = {
           layout = "it";
@@ -21,7 +20,7 @@
 
       output = [
         {
-          _args = [ "eDP-1" ];
+          _args = ["eDP-1"];
           mode = "1920x1080@60";
           position._props = {
             x = 0;
@@ -30,7 +29,6 @@
           scale = 1.0;
         }
       ];
-
     };
   };
 }

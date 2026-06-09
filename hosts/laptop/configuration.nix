@@ -17,8 +17,7 @@
       self.nixosModules.pipewire
       self.nixosModules.shell
       self.nixosModules.stylix
-      self.nixosModules.niri
-      self.nixosModules.noctalia
+      self.nixosModules.gui
       self.nixosModules.flatpak
     ];
 

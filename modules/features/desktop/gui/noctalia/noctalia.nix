@@ -1,9 +1,9 @@
 {inputs, ...}: {
-  flake.nixosModules.noctalia = {...}: {
+  flake.nixosModules.gui = {...}: {
     services.upower.enable = true;
     services.power-profiles-daemon.enable = true;
   };
-  flake.homeModules.noctalia = {pkgs, ...}: {
+  flake.homeModules.gui = {pkgs, ...}: {
     imports = [inputs.noctalia.homeModules.default];
 
     programs.noctalia-shell = {

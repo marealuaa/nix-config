@@ -1,32 +1,34 @@
-{ inputs, ... }: {
-  flake.nixosModules.core = { pkgs, ... }: {
+{inputs, ...}: {
+  flake.nixosModules.core = {pkgs, ...}: {
     nix = {
       settings = {
-	experimental-features = ["nix-command" "flakes"];
+        experimental-features = ["nix-command" "flakes"];
 
-	max-jobs = "auto";
-	cores = 0;
-	keep-outputs = true;
+        max-jobs = "auto";
+        cores = 0;
+        keep-outputs = true;
 
-	auto-optimise-store = true;
+        auto-optimise-store = true;
 
-	trusted-users = ["root" "@wheel"];
+        trusted-users = ["root" "@wheel"];
 
-	substituters = [
+        substituters = [
           "https://cache.nixos.org/"
-          "https://nix-community.cachix.org" 
+          "https://nix-community.cachix.org"
+          "https://attic.xuyh0120.win/lantian"
         ];
 
         trusted-public-keys = [
           "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
           "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+          "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
         ];
       };
 
       gc = {
-	automatic = true;
-	dates = "weekly";
-	options = "--delete-older-than 14d";
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 14d";
       };
 
       registry.nixpkgs.flake = inputs.nixpkgs;
