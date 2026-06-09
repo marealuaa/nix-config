@@ -45,7 +45,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Extras
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
   };
 

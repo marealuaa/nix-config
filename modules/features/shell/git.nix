@@ -1,5 +1,5 @@
 {
-  flake.homeModules.shell = { pkgs, ... }: {
+  flake.homeModules.shell = {...}: {
     programs.git = {
       enable = true;
       userName = "mari";
@@ -18,10 +18,10 @@
         options = {
           navigate = true;
           line-numbers = true;
-          side-by-side = true; 
+          side-by-side = true;
         };
       };
-    };  
+    };
 
     programs.lazygit = {
       enable = true;
@@ -34,4 +34,3 @@
     };
   };
 }
-
