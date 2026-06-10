@@ -1,5 +1,5 @@
 {
-  flake.homeModules.gui = {pkgs, ...}: let
+  flake.homeModules.guii = {pkgs, ...}: let
     tokyoNightCyanHover = pkgs.writeText "Tokyo-Night-CyanHover.json" (builtins.toJSON {
       dark = {
         mPrimary = "#7aa2f7";

@@ -22,13 +22,6 @@
           enable = true;
         };
 
-        theme = {
-          enable = true;
-          name = "tokyonight";
-          style = "night";
-          transparent = true;
-        };
-
         lsp = {
           enable = true;
 
