@@ -10,6 +10,12 @@
 
         undoFile.enable = true;
 
+        clipboard = {
+          enable = true;
+          providers.wl-copy.enable = true;
+          registers = "unnamedplus";
+        };
+
         opts = {
           expandtab = true;
           shiftwidth = 2;
@@ -18,20 +24,87 @@
           termguicolors = true;
         };
 
-        #clipboard = {
-        # enable = true;
-        # wl-copy.enable = true;
-        # registers = "unnamedplus";
-        #};
-
         globals.mapleader = " ";
 
         keymaps = [
+          # diagnostics
           {
             key = "<leader>d";
             mode = "n";
             silent = true;
-            action = "lua vim.diagnostics.open_float()";
+            action = "<cmd>lua vim.diagnostic.open_float()<cr>";
+          }
+          # neo-tree
+          {
+            key = "<leader>e";
+            mode = "n";
+            silent = true;
+            action = "<cmd>Neotree toggle<cr>";
+          }
+
+          # toggleterm
+          {
+            key = "<C-t>";
+            mode = "n";
+            silent = true;
+            action = "<cmd>ToggleTerm<cr>";
+          }
+
+          # trouble
+          {
+            key = "<leader>xx";
+            mode = "n";
+            silent = true;
+            action = "<cmd>Trouble diagnostics toggle<cr>";
+          }
+          {
+            key = "<leader>xb";
+            mode = "n";
+            silent = true;
+            action = "<cmd>Trouble diagnostics toggle filter.buf=0<cr>";
+          }
+
+          # diffview
+          {
+            key = "<leader>gd";
+            mode = "n";
+            silent = true;
+            action = "<cmd>DiffviewOpen<cr>";
+          }
+          {
+            key = "<leader>gh";
+            mode = "n";
+            silent = true;
+            action = "<cmd>DiffviewFileHistory<cr>";
+          }
+
+          # mini.pick
+          {
+            key = "<leader>ff";
+            mode = "n";
+            action = "<cmd>Pick files<cr>";
+          }
+          {
+            key = "<leader>fg";
+            mode = "n";
+            silent = true;
+            action = "<cmd>Pick grep_live<cr>";
+          }
+          {
+            key = "<leader>fb";
+            mode = "n";
+            silent = true;
+            action = "<cmd>Pick buffers<cr>";
+          }
+          {
+            key = "<Tab>";
+            mode = "n";
+            action = "<cmd>BufferLineCycleNext<cr>";
+          }
+          {
+            key = "<S-Tab>";
+            mode = "n";
+            action = "<cmd>BufferLineCyclePrev<cr>";
           }
         ];
 

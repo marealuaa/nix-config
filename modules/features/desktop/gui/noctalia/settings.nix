@@ -1,27 +1,58 @@
 {
-  flake.homeModules.guii = {pkgs, ...}: let
-    tokyoNightCyanHover = pkgs.writeText "Tokyo-Night-CyanHover.json" (builtins.toJSON {
-      dark = {
-        mPrimary = "#7aa2f7";
-        mOnPrimary = "#1a1b26";
-        mSecondary = "#bb9af7";
-        mOnSecondary = "#1a1b26";
-        mTertiary = "#7dcfff";
-        mOnTertiary = "#1a1b26";
-        mError = "#f7768e";
-        mOnError = "#1a1b26";
-        mSurface = "#1a1b26";
-        mOnSurface = "#c0caf5";
-        mSurfaceVariant = "#1f2335";
-        mOnSurfaceVariant = "#a9b1d6";
-        mOutline = "#3b4261";
-        mShadow = "#15161e";
-        mHover = "#7dcfff";
-        mOnHover = "#1a1b26";
-      };
-    });
+  flake.homeModules.gui = {pkgs, ...}: let
+    Paradise = pkgs.writeText "Paradise.json" (
+      builtins.toJSON
+      {
+        dark = {
+          mPrimary = "#8DA3B9";
+          mOnPrimary = "#151515";
+          mSecondary = "#A988B0";
+          mOnSecondary = "#151515";
+          mTertiary = "#B66467";
+          mOnTertiary = "#151515";
+          mError = "#B66467";
+          mOnError = "#151515";
+          mSurface = "#151515";
+          mOnSurface = "#E8E3E3";
+          mSurfaceVariant = "#242424";
+          mOnSurfaceVariant = "#B8B2B2";
+          mOutline = "#333333";
+          mShadow = "#151515";
+          mHover = "#333333";
+          mOnHover = "#E8E3E3";
+          terminal = {
+            background = "#151515";
+            foreground = "#E8E3E3";
+            cursor = "#E8E3E3";
+            cursorText = "#151515";
+            selectionBg = "#333333";
+            selectionFg = "#E8E3E3";
+            normal = {
+              black = "#151515";
+              red = "#B66467";
+              green = "#8C977D";
+              yellow = "#D9BC8C";
+              blue = "#8DA3B9";
+              magenta = "#A988B0";
+              cyan = "#8AA6A2";
+              white = "#E8E3E3";
+            };
+            bright = {
+              black = "#424242";
+              red = "#B66467";
+              green = "#8C977D";
+              yellow = "#D9BC8C";
+              blue = "#8DA3B9";
+              magenta = "#A988B0";
+              cyan = "#8AA6A2";
+              white = "#FFFFFF";
+            };
+          };
+        };
+      }
+    );
   in {
-    home.file.".config/noctalia/palettes/Tokyo-Night-CyanHover.json".source = tokyoNightCyanHover;
+    home.file.".config/noctalia/palettes/Paradise.json".source = Paradise;
 
     programs.noctalia = {
       settings = {
@@ -35,47 +66,58 @@
 
         backdrop = {
           blur_intensity = 0.5;
-          enabled = false;
-          tint_intensity = 0.30000001192092896;
-        };
-
-        bar.default = {
-          auto_hide = false;
-          background_opacity = 0.85000002384185791;
-          border = "outline";
-          border_width = 0.0;
-          capsule = false;
-          capsule_fill = "outline";
-          capsule_group = [];
-          capsule_opacity = 1.0;
-          capsule_padding = 6.0;
-          center = ["audio_visualizer" "media"];
-          contact_shadow = false;
           enabled = true;
-          end = ["tray" "notifications" "clipboard" "bluetooth" "battery" "brightness" "volume" "network"];
-          font_weight = 500;
-          layer = "top";
-          margin_edge = 10;
-          margin_ends = 16;
-          padding = 14;
-          panel_overlap = 1;
-          position = "left";
-          radius = 22;
-          radius_bottom_left = 22;
-          radius_bottom_right = 22;
-          radius_top_left = 22;
-          radius_top_right = 22;
-          reserve_space = true;
-          scale = 1.3500000238418579;
-          shadow = true;
-          start = ["control-center" "clock" "workspaces"];
-          thickness = 50;
-          widget_spacing = 6;
+          tint_intensity = 0.0;
         };
 
-        battery = {
-          warning_threshold = 20;
+        bar = {
+          order = ["rain"];
+
+          rain = {
+            auto_hide = false;
+            background_opacity = 0.8;
+            border = "on_hover";
+            border_width = 0.0;
+            capsule = false;
+            capsule_fill = "surface_variant";
+            capsule_opacity = 1.0;
+            capsule_padding = 6.0;
+            center = ["media"];
+            contact_shadow = false;
+            enabled = true;
+            end = ["network" "battery" "weather" "date" "clock" "tray" "notifications"];
+            font_weight = 500;
+            layer = "top";
+            margin_edge = 0;
+            margin_ends = 0;
+            padding = 10;
+            panel_overlap = 1;
+            position = "top";
+            radius = 0;
+            radius_bottom_left = 0;
+            radius_bottom_right = 0;
+            radius_top_left = 0;
+            radius_top_right = 0;
+            reserve_space = true;
+            scale = 1.1;
+            shadow = true;
+            start = ["group:g2" "workspaces"];
+            thickness = 24;
+            widget_spacing = 12;
+
+            capsule_group = [
+              {
+                fill = "surface_variant";
+                id = "g2";
+                members = ["control-center" "launcher"];
+                opacity = 0.0;
+                padding = 0.0;
+              }
+            ];
+          };
         };
+
+        battery.warning_threshold = 20;
 
         brightness = {
           enable_ddcutil = false;
@@ -111,35 +153,35 @@
         };
 
         dock = {
-          active_monitor_only = false;
+          active_monitor_only = true;
           active_opacity = 1.0;
           active_scale = 1.0;
-          auto_hide = false;
-          background_opacity = 0.85000002384185791;
+          auto_hide = true;
+          background_opacity = 0.8;
           cross_axis_padding = 8;
-          enabled = false;
-          icon_size = 48;
-          inactive_opacity = 0.85000002384185791;
-          inactive_scale = 0.85000002384185791;
-          item_spacing = 6;
+          enabled = true;
+          icon_size = 50;
+          inactive_opacity = 0.85;
+          inactive_scale = 0.85;
+          item_spacing = 0;
           launcher_icon = "grid-dots";
           launcher_position = "none";
           magnification = true;
-          magnification_scale = 1.4500000476837158;
-          main_axis_padding = 16;
+          magnification_scale = 1.45;
+          main_axis_padding = 10;
           margin_edge = 8;
           margin_ends = 0;
           monitors = [];
-          pinned = [];
+          pinned = ["org.gnome.Nautilus" "spotify" "zen-beta" "vesktop"];
           position = "bottom";
-          radius = 16;
-          radius_bottom_left = 16;
-          radius_bottom_right = 16;
-          radius_top_left = 16;
-          radius_top_right = 16;
+          radius = 20;
+          radius_bottom_left = 20;
+          radius_bottom_right = 20;
+          radius_top_left = 20;
+          radius_top_right = 20;
           reserve_space = false;
           shadow = true;
-          show_dots = false;
+          show_dots = true;
           show_instance_count = true;
           show_running = true;
         };
@@ -168,28 +210,27 @@
         idle = {
           behavior_order = ["lock" "screen-off" "lock-and-suspend"];
           pre_action_fade_seconds = 2.0;
-          behavior = {
-            lock = {
-              action = "lock";
-              command = "";
-              enabled = false;
-              resume_command = "";
-              timeout = 600;
-            };
-            "lock-and-suspend" = {
-              action = "lock_and_suspend";
-              command = "";
-              enabled = false;
-              resume_command = "";
-              timeout = 900;
-            };
-            "screen-off" = {
-              action = "screen_off";
-              command = "";
-              enabled = false;
-              resume_command = "";
-              timeout = 660;
-            };
+
+          behavior.lock = {
+            action = "lock";
+            command = "";
+            enabled = false;
+            resume_command = "";
+            timeout = 600;
+          };
+          behavior."lock-and-suspend" = {
+            action = "lock_and_suspend";
+            command = "";
+            enabled = false;
+            resume_command = "";
+            timeout = 900;
+          };
+          behavior."screen-off" = {
+            action = "screen_off";
+            command = "";
+            enabled = false;
+            resume_command = "";
+            timeout = 660;
           };
         };
 
@@ -210,10 +251,11 @@
         };
 
         lockscreen = {
-          blur_intensity = 0.59999996423721313;
+          blur_intensity = 0.2;
           blurred_desktop = false;
+          enabled = true;
           monitors = [];
-          tint_intensity = 0.0;
+          tint_intensity = 0.1;
           wallpaper = "";
         };
 
@@ -226,7 +268,7 @@
 
         notification = {
           allowed_urgencies = [];
-          background_opacity = 0.85000002384185791;
+          background_opacity = 0.85;
           blacklist = [];
           blacklist_allow_critical = true;
           collapse_on_dismiss = true;
@@ -242,7 +284,7 @@
         };
 
         osd = {
-          background_opacity = 0.85000002384185791;
+          background_opacity = 0.85;
           monitors = [];
           offset_x = 20;
           offset_y = 8;
@@ -264,24 +306,43 @@
           };
         };
 
+        plugins = {
+          enabled = [];
+          source = [
+            {
+              auto_update = false;
+              enabled = true;
+              kind = "git";
+              location = "https://github.com/noctalia-dev/official-plugins";
+              name = "official";
+            }
+            {
+              auto_update = false;
+              enabled = true;
+              kind = "git";
+              location = "https://github.com/noctalia-dev/community-plugins";
+              name = "community";
+            }
+          ];
+        };
+
         shell = {
-          app_icon_color = "primary";
-          app_icon_colorize = true;
-          avatar_path = "/home/mari/pictures/pfp.jpeg";
+          app_icon_colorize = false;
+          avatar_path = "/home/mari/Pictures/Misc/pfp.png";
           clipboard_auto_paste = "auto";
           clipboard_confirm_clear_history = true;
           clipboard_enabled = true;
-          clipboard_history_max_entries = 50;
+          clipboard_history_max_entries = 100;
           clipboard_image_action_command = "";
           corner_radius_scale = 2.0;
           date_format = "%A, %x";
           disable_mipmaps = false;
-          font_family = "JetBrainsMono Nerd Font";
+          font_family = "SF Pro Display";
           launch_apps_as_systemd_services = false;
           middle_click_opens_widget_settings = true;
           niri_overview_type_to_launch_enabled = true;
           offline_mode = false;
-          password_style = "random";
+          password_style = "default";
           polkit_agent = false;
           screen_time_enabled = false;
           settings_show_advanced = true;
@@ -290,27 +351,26 @@
           show_location = true;
           telemetry_enabled = false;
           time_format = "{:%H:%M}";
-          ui_scale = 1.0499999523162842;
+          ui_scale = 1.0;
 
           animation = {
             enabled = true;
-            speed = 0.80000001192092896;
+            speed = 0.85;
           };
 
-          mpris = {
-            blacklist = [];
-          };
+          mpris.blacklist = [];
 
           panel = {
-            borders = false;
-            clipboard_placement = "attached";
+            borders = true;
+            clipboard_placement = "centered";
             control_center_placement = "attached";
-            launcher_categories = true;
-            launcher_compact = false;
+            launcher_categories = false;
+            launcher_compact = true;
             launcher_placement = "attached";
+            launcher_session_search = false;
             launcher_show_icons = true;
-            open_near_click_clipboard = true;
-            open_near_click_control_center = false;
+            open_near_click_clipboard = false;
+            open_near_click_control_center = true;
             open_near_click_launcher = true;
             open_near_click_session = true;
             open_near_click_wallpaper = true;
@@ -321,13 +381,13 @@
           };
 
           screen_corners = {
-            enabled = true;
-            size = 30;
+            enabled = false;
+            size = 1;
           };
 
           screenshot = {
             copy_to_clipboard = true;
-            directory = "";
+            directory = "/home/mari/Pictures/Screenshots";
             filename_pattern = "";
             freeze_screen = true;
             pipe_command = "";
@@ -384,8 +444,8 @@
           ];
 
           shadow = {
-            alpha = 0.25999999046325684;
-            direction = "center";
+            alpha = 0.6;
+            direction = "down";
           };
         };
 
@@ -419,12 +479,12 @@
         };
 
         theme = {
-          builtin = "Tokyo-Night";
+          builtin = "Noctalia";
           community_palette = "Oxocarbon";
-          custom_palette = "Tokyo-Night-CyanHover";
+          custom_palette = "Paradise";
           mode = "dark";
           source = "custom";
-          wallpaper_scheme = "m3-content";
+          wallpaper_scheme = "m3-tonal-spot";
           templates = {
             builtin_ids = [];
             community_ids = [];
@@ -434,12 +494,12 @@
         };
 
         wallpaper = {
-          directory = "/home/mari/pictures/wallpapers";
+          directory = "/home/mari/Pictures/Wallpapers";
           directory_dark = "";
           directory_light = "";
-          edge_smoothness = 0.30000001192092896;
+          edge_smoothness = 0.3;
           enabled = true;
-          fill_color = "primary";
+          fill_color = "";
           fill_mode = "crop";
           per_monitor_directories = false;
           transition = ["fade" "wipe" "disc" "stripes" "zoom" "honeycomb"];
@@ -460,141 +520,108 @@
           unit = "metric";
         };
 
-        widget = {
-          active_window = {
-            icon_size = 14.0;
-            max_length = 260.0;
-            min_length = 80.0;
-            title_scroll = "none";
-            type = "active_window";
-          };
-          audio_visualizer = {
-            bands = 20;
-            show_when_idle = true;
-            type = "audio_visualizer";
-            width = 144.0;
-          };
-          battery = {
-            anchor = true;
-            show_label = false;
-            type = "battery";
-            warning_color = "primary";
-          };
-          brightness = {
-            anchor = true;
-            scale = 1.25;
-            show_label = false;
-            type = "brightness";
-          };
-          clock = {
-            scale = 0.94999999999999996;
-            type = "clock";
-          };
-          "control-center" = {
-            anchor = true;
-            color = "primary";
-            custom_image = ./_NixOS.svg;
-            custom_image_colorize = true;
-            scale = 1.7;
-            type = "control-center";
-          };
-          cpu = {
-            stat = "cpu_usage";
-            type = "sysmon";
-          };
-          date = {
-            format = "{:%a %d %b}";
-            type = "clock";
-          };
-          input_volume = {
-            device = "input";
-            type = "volume";
-          };
-          keyboard_layout = {
-            cycle_command = "";
-            hide_when_single_layout = false;
-            type = "keyboard_layout";
-          };
-          launcher = {
-            color = "primary";
-            custom_image = "/home/mari/Downloads/NixOS.png";
-            custom_image_colorize = true;
-            scale = 1.7;
-            type = "launcher";
-          };
-          lock_keys = {
-            display = "short";
-            hide_when_off = false;
-            show_caps_lock = true;
-            show_num_lock = true;
-            show_scroll_lock = false;
-            type = "lock_keys";
-          };
-          media = {
-            art_size = 39.0;
-            hide_when_no_media = true;
-            max_length = 220.0;
-            min_length = 80.0;
-            title_scroll = "on_hover";
-            type = "media";
-          };
-          network = {
-            show_label = false;
-            type = "network";
-          };
-          network_rx = {
-            stat = "net_rx";
-            type = "sysmon";
-          };
-          network_tx = {
-            stat = "net_tx";
-            type = "sysmon";
-          };
-          notifications = {
-            hide_when_no_unread = true;
-            type = "notifications";
-          };
-          output_volume = {
-            device = "output";
-            type = "volume";
-          };
-          ram = {
-            stat = "ram_used";
-            type = "sysmon";
-          };
-          session = {
-            anchor = true;
-            scale = 1.2;
-            type = "session";
-          };
-          spacer = {
-            type = "spacer";
-          };
-          temp = {
-            stat = "cpu_temp";
-            type = "sysmon";
-          };
-          tray = {
-            detached_panel = false;
-            drawer = true;
-            type = "tray";
-          };
-          volume = {
-            show_label = false;
-            type = "volume";
-          };
-          weather = {
-            max_length = 40;
-            show_condition = false;
-            type = "weather";
-          };
-          workspaces = {
-            display = "none";
-            empty_color = "#7DCFFF";
-            occupied_color = "#7DCFFF";
-            scale = 1.1500000000000001;
-            type = "workspaces";
-          };
+        # Widget definitions
+        "widget.active_window" = {
+          icon_size = 14.0;
+          max_length = 260.0;
+          min_length = 80.0;
+          title_scroll = "none";
+          type = "active_window";
+        };
+        "widget.audio_visualizer" = {
+          bands = 15;
+          type = "audio_visualizer";
+          width = 75.0;
+        };
+        "widget.battery" = {
+          display_mode = "graphic";
+          scale = 0.75;
+          show_label = false;
+          type = "battery";
+        };
+        "widget.bongocat" = {
+          script = "scripts/bongocat.lua";
+          type = "scripted";
+        };
+        "widget.control-center" = {
+          custom_image = "/home/mari/nix-config/modules/features/desktop/gui/noctalia/_NixOS.svg";
+          custom_image_colorize = true;
+          glyph = "brand-apple-filled";
+          scale = 1.25;
+          type = "control-center";
+        };
+        "widget.cpu" = {
+          stat = "cpu_usage";
+          type = "sysmon";
+        };
+        "widget.date" = {
+          format = "{:%a}";
+          type = "clock";
+        };
+        "widget.input_volume" = {
+          device = "input";
+          type = "volume";
+        };
+        "widget.keyboard_layout" = {
+          cycle_command = "";
+          hide_when_single_layout = false;
+          type = "keyboard_layout";
+        };
+        "widget.lock_keys" = {
+          display = "short";
+          hide_when_off = false;
+          show_caps_lock = true;
+          show_num_lock = true;
+          show_scroll_lock = false;
+          type = "lock_keys";
+        };
+        "widget.media" = {
+          art_size = 14.0;
+          max_length = 220.0;
+          min_length = 80.0;
+          title_scroll = "always";
+          type = "media";
+        };
+        "widget.network" = {
+          scale = 1.15;
+          show_label = false;
+          type = "network";
+        };
+        "widget.network_rx" = {
+          stat = "net_rx";
+          type = "sysmon";
+        };
+        "widget.network_tx" = {
+          stat = "net_tx";
+          type = "sysmon";
+        };
+        "widget.output_volume" = {
+          device = "output";
+          type = "volume";
+        };
+        "widget.ram" = {
+          stat = "ram_used";
+          type = "sysmon";
+        };
+        "widget.spacer" = {type = "spacer";};
+        "widget.temp" = {
+          stat = "cpu_temp";
+          type = "sysmon";
+        };
+        "widget.weather" = {
+          scale = 0.95;
+          show_condition = false;
+          type = "weather";
+        };
+        "widget.workspaces" = {
+          empty_color = "on_surface";
+          focused_color = "on_surface";
+          labels_only_when_occupied = true;
+          minimal = true;
+          occupied_color = "on_surface";
+          pill_scale = 0.4;
+          scale = 1.25;
+          type = "workspaces";
         };
       };
     };

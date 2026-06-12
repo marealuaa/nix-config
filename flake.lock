@@ -412,6 +412,26 @@
         "type": "github"
       }
     },
+    "nix-index-database": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780816331,
+        "narHash": "sha256-0BYqs8yKWkOz2Q7+SP18N5E5gmDKSo6LSxIVIa0wWes=",
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "rev": "1a2ea89c917781e88508d9fd2b507f2d2a0e173c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1781160751,
@@ -492,11 +512,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1781261721,
-        "narHash": "sha256-LC9XTqa49KtwyfQf9yC+NnmMJdKEVMNd8o8N+rUr7y8=",
+        "lastModified": 1781272956,
+        "narHash": "sha256-GYsNjYDFY20+crxl63/i4vw3vFgpPxHpw90K42JDewc=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "8c634b51ab1dd731f2b5423172cdb1371a77c562",
+        "rev": "7cc807565a882439b549cc329fff2230aa604ea6",
         "type": "github"
       },
       "original": {
@@ -542,11 +562,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1781266087,
-        "narHash": "sha256-9WGj38qG01BvH3ibwuSPcnRqAtOY+verek6MBJ5c2vQ=",
+        "lastModified": 1781267807,
+        "narHash": "sha256-DfC1xwUxnGvfXh2pdN5/ozXfbQFSWWZQ4BYgusUnkDM=",
         "owner": "notashelf",
         "repo": "nvf",
-        "rev": "6f6b34a0b9267bc8dcd861960b369e54c2e063bd",
+        "rev": "36c88a31f6bc34f9bb3afd4e0fde1296b6f813bb",
         "type": "github"
       },
       "original": {
@@ -562,6 +582,7 @@
         "niri-nix": "niri-nix",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nix-flatpak": "nix-flatpak",
+        "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_2",
         "noctalia": "noctalia",
         "nvf": "nvf",
