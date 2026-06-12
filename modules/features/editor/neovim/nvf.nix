@@ -18,6 +18,23 @@
           termguicolors = true;
         };
 
+        #clipboard = {
+        # enable = true;
+        # wl-copy.enable = true;
+        # registers = "unnamedplus";
+        #};
+
+        globals.mapleader = " ";
+
+        keymaps = [
+          {
+            key = "<leader>d";
+            mode = "n";
+            silent = true;
+            action = "lua vim.diagnostics.open_float()";
+          }
+        ];
+
         spellcheck = {
           enable = true;
         };
@@ -38,7 +55,7 @@
 
           nix = {
             enable = true;
-            lsp.server = ["nixd"];
+            lsp.servers = ["nixd"];
           };
 
           bash.enable = true;
@@ -88,19 +105,8 @@
           cheatsheet.enable = true;
         };
 
-        telescope = {
+        mini.pick = {
           enable = true;
-          setupOpts = {
-            defaults = {
-              sorting_strategy = "ascending";
-              layout_config = {
-                horizontal = {
-                  prompt_position = "top";
-                  preview_width = 0.55;
-                };
-              };
-            };
-          };
         };
 
         git = {

@@ -3,9 +3,10 @@
     wayland.windowManager.niri.settings.binds = {
       "Mod+Return" = {spawn = ["ghostty" "--gtk-single-instance=true"];};
       "Mod+Space" = {spawn = ["noctalia" "msg" "panel-toggle" "launcher"];};
+      "Mod+S" = {spawn = ["noctalia" "msg" "screenshot-region"];};
       "Mod+Q" = {close-window = [];};
       "Mod+O" = {toggle-overview = [];};
-      "Mod+V" = {toggle-overview = [];};
+      "Mod+V" = {toggle-window-floating = [];};
 
       "Mod+Plus" = {set-column-width = ["+50"];};
       "Mod+Minus" = {set-column-width = ["-50"];};

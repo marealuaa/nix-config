@@ -7,7 +7,7 @@
         gaps = 16;
         center-focused-column = "never";
         default-column-width._children = [
-          {proportion = 1.0;}
+          {proportion = 0.5;}
         ];
 
         background-color = "transparent";
@@ -27,7 +27,7 @@
       };
 
       blur = {
-        passes = 3;
+        passes = 4;
         offset = 2.5;
       };
 
@@ -69,7 +69,7 @@
 
       window-rule = [
         {
-          geometry-corner-radius = 20.0;
+          geometry-corner-radius = 14.0;
           clip-to-geometry = true;
           draw-border-with-background = false;
           background-effect = {
@@ -79,11 +79,11 @@
         }
         {
           match._props.is-focused = true;
-          opacity = 0.85;
+          opacity = 0.8;
         }
         {
           match._props.is-focused = false;
-          opacity = 0.75;
+          opacity = 0.7;
         }
       ];
     };

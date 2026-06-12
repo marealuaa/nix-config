@@ -1,7 +1,7 @@
 {...}: {
   perSystem = {pkgs, ...}: {
     packages = {
-      sf-pro = pkgs.callPackage ./sf-pro {};
+      sf-pro = pkgs.callPackage ./sf-pro/_default.nix {};
     };
   };
 }

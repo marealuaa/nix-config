@@ -41,8 +41,8 @@
 
       cursor = {
         package = pkgs.apple-cursor;
-        name = "macOS-Dark";
-        size = 21;
+        name = "macOS";
+        size = 16;
       };
 
       icons = {
@@ -59,12 +59,12 @@
         };
 
         sansSerif = {
-          package = self.packages.${pkgs.system}.sf-pro;
+          package = self.packages.${pkgs.stdenv.hostPlatform.system}.sf-pro;
           name = "SF Pro Display";
         };
 
         serif = {
-          package = self.packages.${pkgs.system}.sf-pro;
+          package = self.packages.${pkgs.stdenv.hostPlatform.system}.sf-pro;
           name = "SF Pro Display";
         };
 

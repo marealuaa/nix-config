@@ -2,8 +2,12 @@
   flake.homeModules.shell = {...}: {
     programs.git = {
       enable = true;
-      userName = "mari";
-      userEmail = "mari@lua.sea";
+      settings = {
+        user = {
+          name = "mari";
+          email = "mari@lua.sea";
+        };
+      };
 
       extraConfig = {
         init.defaultBranch = "master";
@@ -12,15 +16,6 @@
       };
 
       ignores = ["*.o" "*.out" "*.DS_Store" "result"];
-
-      delta = {
-        enable = true;
-        options = {
-          navigate = true;
-          line-numbers = true;
-          side-by-side = true;
-        };
-      };
     };
 
     programs.lazygit = {
