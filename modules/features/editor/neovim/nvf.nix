@@ -96,6 +96,7 @@
             silent = true;
             action = "<cmd>Pick buffers<cr>";
           }
+          # Bufferline
           {
             key = "<Tab>";
             mode = "n";
@@ -105,6 +106,17 @@
             key = "<S-Tab>";
             mode = "n";
             action = "<cmd>BufferLineCyclePrev<cr>";
+          }
+          # Typst preview
+          {
+            key = "<leader>tp";
+            mode = "n";
+            action = "<cmd>TypstPreviewToggle<cr>";
+          }
+          {
+            key = "<leader>tu";
+            mode = "n";
+            action = "<cmd>TypstPreviewUpdate<cr>";
           }
         ];
 
@@ -135,7 +147,16 @@
           fish.enable = true;
           clang.enable = true;
           python.enable = true;
-          typst.enable = true;
+          typst = {
+            enable = true;
+            extensions.typst-preview-nvim = {
+              enable = true;
+              setupOpts = {
+                open_cmd = "zen-beta %s";
+              };
+            };
+          };
+
           rust = {
             enable = true;
             extensions.crates-nvim.enable = true;
@@ -194,10 +215,6 @@
         utility = {
           diffview-nvim.enable = true;
           surround.enable = true;
-        };
-
-        notes = {
-          todo-comments.enable = true;
         };
 
         terminal = {

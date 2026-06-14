@@ -19,6 +19,9 @@
 
     environment.systemPackages = with pkgs; [
       lutris
+      wineWow64Packages.staging
+      vulkan-tools
+      winetricks
       heroic
       umu-launcher
       protonup-qt
